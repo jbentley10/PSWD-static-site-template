@@ -12,6 +12,7 @@ import { useState, useContext, useEffect } from "react";
 
 // Import components
 import { LocaleContext } from "./locale-provider";
+import Hero from "@/components/hero";
 
 const blockByType = (block) => {
   // Get the content type from the block content properties
@@ -19,8 +20,17 @@ const blockByType = (block) => {
 
   switch (contentType) {
     case "exampleBlock":
+      return <div id="example-block" className="bg-red" />;
+
+    case "heroBlock":
+      console.log(block)
       return (
-        <div id="example-block" className="bg-red"/>
+        <Hero
+          heading={block.fields.heading}
+          subheading={block.fields.subHeading}
+          buttonText={block.fields.buttonText}
+          buttonLink={block.fields.buttonLink}
+        />
       );
 
     default:
