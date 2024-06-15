@@ -2,23 +2,39 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
+### Contentful
+
+To start, clone this repository on your local machine (git clone https://...)
+
+Next, create a new Organization within Contentful. If you do not have a Contentful account, sign up for one for free. 
+
+Once your organization has been created, create a Space within that Organization. This Space will be where the content for this new website will live.
+
+Next, log in to the Contentful CLI using the command `contentful login`. If you are already logged in, you will be prompted to log out. A browser window will appear once you run the login command, and will provide you with a unique token to paste into the command line.
+
+You're nearly there! Now, just run `contentful space import --content-file contentful-export.json --space-id [space-id]` where [space-id] is the ID of your space (no square brackets). 
+
+Now, rename your `example-env.local` file to `.env.local` and fill in the environment variables with the fields from the Contentful space you just created.
+
+### Development
+
+With the Contentful space ready to go, we can start building the site in code. 
+
 First, run the development server:
 
 ```bash
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+
+The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
 ## Learn More
 
