@@ -14,7 +14,7 @@ import { useState, useContext, useEffect } from "react";
 import { LocaleContext } from "./locale-provider";
 import Hero from "@/components/hero";
 
-const blockByType = (block) => {
+const blockByType = (block: any) => {
   // Get the content type from the block content properties
   const contentType = block.sys.contentType.sys.id;
 
@@ -51,7 +51,7 @@ export default function Content({ englishBlocks, spanishBlocks }) {
 
   return (
     translatedBlocks &&
-    translatedBlocks.map((block) => {
+    translatedBlocks.map((block: any) => {
       return blockByType(block);
     })
   );
