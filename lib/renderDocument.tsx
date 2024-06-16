@@ -6,10 +6,10 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { BLOCKS } from "@contentful/rich-text-types";
 import Image from "next/image";
 
-export const renderDocument = (document) => {
+export const renderDocument = (document: any) => {
   const options = {
     renderNode: {
-      [BLOCKS.EMBEDDED_ASSET]: (node) => (
+      [BLOCKS.EMBEDDED_ASSET]: (node: any) => (
         <Image
           src={`https:${node.data?.target?.fields?.file?.url}`}
           alt={node.data?.target?.fields?.title}
@@ -17,11 +17,11 @@ export const renderDocument = (document) => {
           height={node.data?.target?.fields?.file?.details?.image?.height}
         />
       ),
-      [BLOCKS.PARAGRAPH]: (node, children) => (
+      [BLOCKS.PARAGRAPH]: (node: any, children: React.ReactNode) => (
         <p>{children}</p>
       )
     },
-    renderText: (text) =>
+    renderText: (text: string) =>
 			text.split("\n").flatMap((text, i) => [i > 0 && <br key={Math.random()} />, text]),
   };
 

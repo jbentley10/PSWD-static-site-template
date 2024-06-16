@@ -9,10 +9,10 @@ const client = require("contentful").createClient({
   environment: environment,
 });
 
-export async function fetchPage(id) {
+export async function fetchPage(id: string, locale: string) {
   const entry = await client.getEntry(
     id, 
-    { locale: locale }
+    { locale }
   );
 
   if (entry.fields) return entry;
@@ -31,7 +31,7 @@ export async function fetchPages() {
 
   // Front end only needs page IDs and title, so map
   // an array with just that
-  const pages = entries.items.map((entry) => {
+  const pages = entries.items.map((entry: any) => {
     return Object.assign({
       id: entry.sys.id,
       englishTitle: entry.fields.englishTitle,
@@ -46,7 +46,7 @@ export async function fetchPages() {
   return pages;
 }
 
-export async function fetchMetadataBySlug(slug) {
+export async function fetchMetadataBySlug(slug: string) {
   console.log(`Fetching metadata for slug ${slug}...`);
 
   const pages = await client.getEntries({
@@ -73,7 +73,7 @@ export async function fetchMetadataBySlug(slug) {
   } 
 }
 
-export async function fetchBlocksBySlug(slug, locale) {
+export async function fetchBlocksBySlug(slug: string, locale: string) {
   console.log(`Fetching blocks from ${slug}...`);
   const pages = await client.getEntries({
     include: 2,
@@ -95,7 +95,7 @@ export async function fetchBlocksBySlug(slug, locale) {
   } 
 }
 
-export async function fetchAsset(assetID) {
+export async function fetchAsset(assetID: string) {
   const asset = await client.getAsset(assetID);
   if (asset) return asset;
 
