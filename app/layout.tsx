@@ -19,21 +19,23 @@ import { ThemeProvider } from "@/components/theme-provider";
 // Declare fonts
 const inter = Inter({ subsets: ["latin"] });
 
-export default function RootLayout({ children }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   const [isEnglish, setIsEnglish] = useState(true);
 
   return (
     <html lang="en">
-      <body
-        className={`${inter.className}`}
-      >
+      <body className={`${inter.className}`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
-          <LocaleContext.Provider value={{isEnglish, setIsEnglish}}>
+          <LocaleContext.Provider value={{ isEnglish, setIsEnglish }}>
             <Navigation />
             {children}
             <FloatingActionButton />
