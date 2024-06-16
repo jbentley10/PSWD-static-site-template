@@ -13,23 +13,32 @@ import { useState, useContext, useEffect } from "react";
 // Import components
 import { LocaleContext } from "./locale-provider";
 import Hero from "@/components/hero";
+import ServiceRow from "@/components/service-row";
 
 const blockByType = (block: any) => {
   // Get the content type from the block content properties
   const contentType = block.sys.contentType.sys.id;
 
   switch (contentType) {
-    case "exampleBlock":
-      return <div id="example-block" className="bg-red" />;
-
     case "heroBlock":
-      console.log(block)
       return (
         <Hero
           heading={block.fields.heading}
           subheading={block.fields.subHeading}
           buttonText={block.fields.buttonText}
           buttonLink={block.fields.buttonLink}
+        />
+      );
+
+    case "serviceRowBlock":
+      return (
+        <ServiceRow
+          heading1={block.fields.heading1}
+          subheading1={block.fields.subheading1}
+          heading2={block.fields.heading2}
+          subheading2={block.fields.subheading2}
+          heading3={block.fields.heading3}
+          subheading3={block.fields.subheading3}
         />
       );
 
