@@ -15,6 +15,7 @@ import FloatingActionButton from "../components/floating-action-button";
 import { LocaleContext } from "./locale-provider";
 import { Navigation } from "@/components/navigation";
 import { ThemeProvider } from "@/components/theme-provider";
+import Footer from "@/components/footer";
 
 // Declare fonts
 const inter = Inter({ subsets: ["latin"] });
@@ -38,6 +39,7 @@ export default function RootLayout({
           <LocaleContext.Provider value={{ isEnglish, setIsEnglish }}>
             <Navigation />
             {children}
+            <Footer />
             <FloatingActionButton />
           </LocaleContext.Provider>
         </ThemeProvider>

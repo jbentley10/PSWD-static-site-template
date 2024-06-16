@@ -8,7 +8,7 @@ export const Navigation = () => {
   const { theme, setTheme } = useTheme();
 
   return (
-    <nav className="w-full flex flex-row items-center justify-between xs:justify-end lg:py-8 md:py-10 sm:py-8 xs:py-6">
+    <nav className="bg-background drop-shadow flex flex-row items-center justify-between xs:justify-end lg:py-8 md:py-10 sm:py-8 xs:py-6">
       <section
         className="md:w-1/4 sm:w-2/6 xs:w-1/4 lg:pl-16 md:pl-24 sm:pl-8 xs:pl-4"
         id="logo"
