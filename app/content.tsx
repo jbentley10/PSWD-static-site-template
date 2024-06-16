@@ -38,16 +38,21 @@ const blockByType = (block: any) => {
   }
 };
 
+interface ContentProps {
+  englishBlocks: [];
+  spanishBlocks: [];
+}
+
 // Component recieves a single array of block objects
-export default function Content({ englishBlocks, spanishBlocks }) {
+export default function Content({ englishBlocks, spanishBlocks }: ContentProps) {
   const isEnglish = useContext(LocaleContext);
   const [translatedBlocks, setTranslatedBlocks] = useState(englishBlocks);
 
   useEffect(() => {
-    isEnglish.isEnglish === true
+    isEnglish?.isEnglish === true
       ? setTranslatedBlocks(englishBlocks)
       : setTranslatedBlocks(spanishBlocks);
-  }, [isEnglish.isEnglish, englishBlocks, spanishBlocks]);
+  }, [isEnglish?.isEnglish, englishBlocks, spanishBlocks]);
 
   return (
     translatedBlocks &&
