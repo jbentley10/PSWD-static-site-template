@@ -4,13 +4,13 @@
 "use client";
 
 // Import dependencies
-import { useContext } from "react";
-import { LocaleContext } from "../app/locale-provider";
+import React from 'react';
+import { useLocale } from "../app/locale-provider";
 import { GrLanguage } from "react-icons/gr";
 import { Button } from "./ui/button";
 
-const FloatingActionButton = () => {
-  const isEnglish = useContext(LocaleContext);
+const FloatingActionButton: React.FC = () => {
+  const { isEnglish, setIsEnglish } = useLocale();
 
   return (
     <div
@@ -19,11 +19,11 @@ const FloatingActionButton = () => {
       }
     >
       <Button
-        aria-label="add"
-        onClick={() => isEnglish.setIsEnglish((oldValue) => !oldValue)}
+        aria-label="toggle language"
+        onClick={() => setIsEnglish((oldValue: boolean) => !oldValue)}
       >
-        <GrLanguage className={'mr-2'} />
-        {isEnglish.isEnglish ? "Leer en Español" : "Read in English"}
+        <GrLanguage className={"mr-2"} />
+        {isEnglish ? "Leer en Español" : "Read in English"}
       </Button>
     </div>
   );

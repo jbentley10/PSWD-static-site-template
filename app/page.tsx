@@ -19,7 +19,7 @@ export default async function Home() {
   const [english, spanish] = await Promise.all([blocksEnglish, blocksSpanish]);
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between lg:p-24 xs:p-4">
+    <main className="flex flex-col items-center justify-between lg:p-24 xs:p-4">
       <Content key={Math.random()} englishBlocks={english} spanishBlocks={spanish} />
     </main>
   );

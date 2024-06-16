@@ -3,12 +3,6 @@ import Link from "next/link";
 import { Button } from "./ui/button";
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 
 export const Navigation = () => {
   const { theme, setTheme } = useTheme();

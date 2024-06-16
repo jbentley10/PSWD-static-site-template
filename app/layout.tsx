@@ -25,7 +25,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${inter.className} bg-gradient-to-br from-gradient-orange via-gradient-yellow to-gradient-red`}
+        className={`${inter.className}`}
       >
         <ThemeProvider
           attribute="class"
@@ -33,9 +33,7 @@ export default function RootLayout({ children }) {
           enableSystem
           disableTransitionOnChange
         >
-          <LocaleContext.Provider
-            value={{ isEnglish: isEnglish, setIsEnglish: setIsEnglish }}
-          >
+          <LocaleContext.Provider value={{isEnglish, setIsEnglish}}>
             <Navigation />
             {children}
             <FloatingActionButton />
