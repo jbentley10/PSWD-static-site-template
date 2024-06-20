@@ -12,7 +12,7 @@ import { useState, useContext, useEffect } from "react";
 
 // Import components
 import { LocaleContext } from "./locale-provider";
-import Hero from "@/components/hero";
+import { Hero } from "pswd-design-system";
 import ServiceRow from "@/components/service-row";
 
 const blockByType = (block: any) => {

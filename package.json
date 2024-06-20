@@ -19,6 +19,7 @@
     "lucide-react": "^0.395.0",
     "next": "14.2.4",
     "next-themes": "^0.3.0",
+    "pswd-design-system": "^1.1.13",
     "react": "^18",
     "react-dom": "^18",
     "react-icons": "^5.2.1",

@@ -13,9 +13,9 @@ import { Inter } from "next/font/google";
 // Import components and utils
 import FloatingActionButton from "../components/floating-action-button";
 import { LocaleContext } from "./locale-provider";
-import { Navigation } from "@/components/navigation";
+import { Navigation } from "pswd-design-system";
+import { Footer } from "pswd-design-system";
 import { ThemeProvider } from "@/components/theme-provider";
-import Footer from "@/components/footer";
 
 // Declare fonts
 const inter = Inter({ subsets: ["latin"] });
