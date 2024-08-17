@@ -10,7 +10,7 @@ Next, create a new Organization within Contentful. If you do not have a Contentf
 
 Once your organization has been created, create a Space within that Organization. This Space will be where the content for this new website will live.
 
-Next, log in to the Contentful CLI using the command `contentful login`. If you are already logged in, you will be prompted to log out. A browser window will appear once you run the login command, and will provide you with a unique token to paste into the command line.
+Next, log in to the Contentful CLI using the command `contentful login`. If you don't already have the Contentful CLI installed, go ahead and install it with `npm install -g contentful-cli`. Then run `contentful login`. A browser window will appear once you run the login command, and will provide you with a unique token to paste into the command line.
 
 You're nearly there! Now, just run `contentful space import --content-file contentful-export.json --space-id [space-id]` where [space-id] is the ID of your space (no square brackets).
 
