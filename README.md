@@ -6,19 +6,19 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 To start, clone this repository on your local machine (git clone https://...)
 
-Next, create a new Organization within Contentful. If you do not have a Contentful account, sign up for one for free. 
+Next, create a new Organization within Contentful. If you do not have a Contentful account, sign up for one for free.
 
 Once your organization has been created, create a Space within that Organization. This Space will be where the content for this new website will live.
 
 Next, log in to the Contentful CLI using the command `contentful login`. If you are already logged in, you will be prompted to log out. A browser window will appear once you run the login command, and will provide you with a unique token to paste into the command line.
 
-You're nearly there! Now, just run `contentful space import --content-file contentful-export.json --space-id [space-id]` where [space-id] is the ID of your space (no square brackets). 
+You're nearly there! Now, just run `contentful space import --content-file contentful-export.json --space-id [space-id]` where [space-id] is the ID of your space (no square brackets).
 
 Now, rename your `example-env.local` file to `.env.local` and fill in the environment variables with the fields from the Contentful space you just created.
 
 ### Development
 
-With the Contentful space ready to go, we can start building the site in code. 
+With the Contentful space ready to go, we can start building the site in code.
 
 First, run the development server:
 
