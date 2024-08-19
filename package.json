@@ -1,5 +1,5 @@
 {
-  "name": "static-site-template",
+  "name": "@palm-springs-web-design/static-site-template",
   "version": "0.1.0",
   "private": true,
   "scripts": {
