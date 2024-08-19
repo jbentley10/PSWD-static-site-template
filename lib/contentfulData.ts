@@ -34,7 +34,7 @@ export interface SimplifiedBlock {
   sys: {
     contentType: { sys: { id: string } };
   };
-  fields: HeroBlockFields | ServiceRowBlockFields;
+  fields: HeroBlockFields | ServiceRowBlockFields | SimplifiedBlock;
 }
 
 // Initialize Contentful client
@@ -105,7 +105,7 @@ export async function fetchMetadataBySlug(slug: string) {
   }
 }
 
-function processBlocks(blocks: Block[]): SimplifiedBlock[] {
+function processBlocks(blocks: SimplifiedBlock[]) {
   return blocks.map(({ sys, fields }) => ({
     sys: {
       contentType: {

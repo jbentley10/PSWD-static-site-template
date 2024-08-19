@@ -1,23 +1,11 @@
-/**
- * @file layout.tsx
- */
 "use client";
 
-// Import styles
+import { Antonio, Inter } from "next/font/google";
 import "./globals.css";
-
-// Import dependencies
-import React, { useState } from "react";
-import { Inter } from "next/font/google";
-
-// Import components and utils
-import FloatingActionButton from "../components/floating-action-button";
-import { LocaleContext } from "./locale-provider";
-import { Navigation } from "pswd-design-system";
-import { Footer } from "pswd-design-system";
-import { ThemeProvider } from "@/components/theme-provider";
+import { Navigation, Footer } from "@palm-springs-web-design/oasis";
 
 // Declare fonts
+const antonio = Antonio({ subsets: ["latin"] });
 const inter = Inter({ subsets: ["latin"] });
 
 export default function RootLayout({
@@ -25,24 +13,35 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const [isEnglish, setIsEnglish] = useState(true);
-
   return (
-    <html lang="en">
-      <body className={`${inter.className}`}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <LocaleContext.Provider value={{ isEnglish, setIsEnglish }}>
-            <Navigation />
-            {children}
-            <Footer />
-            <FloatingActionButton />
-          </LocaleContext.Provider>
-        </ThemeProvider>
+    <html lang='en'>
+      <style jsx global>{`
+        h1,
+        h2,
+        h3,
+        h4,
+        button,
+        span,
+        .antonio {
+          font-family: ${antonio.style.fontFamily};
+        }
+
+        button > a {
+          font-family: ${antonio.style.fontFamily};
+        }
+
+        p,
+        a {
+          font-family: ${inter.style.fontFamily};
+        }
+      `}</style>
+      <head>
+        <link rel='icon' href='/favicon.ico' sizes='any' />
+      </head>
+      <body>
+        <Navigation />
+        {children}
+        <Footer />
       </body>
     </html>
   );
