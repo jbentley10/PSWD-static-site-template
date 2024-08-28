@@ -1,43 +1,8 @@
-/**
- * @file contentfulData.ts
- * @description Parses all the data from Contentful
- * and returns what is needed.
- */
-
-// Declare environment variables
 const space = process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID;
 const accessToken = process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN;
 const environment = process.env.NEXT_PUBLIC_CONTENTFUL_ENVIRONMENT;
-
-import { HeroBlockFields, ServiceRowBlockFields } from "@/app/content";
-// Import required stuff
 import { notFound } from "next/navigation";
 
-// Set up interfaces for block-fetching
-interface Block {
-  metadata: {};
-  sys: {
-    space: { sys: { type: string; linkType: string; id: string } };
-    id: string;
-    type: string;
-    createdAt: string;
-    updatedAt: string;
-    environment: { sys: {} };
-    revision: number;
-    contentType: { sys: { type: string; linkType: string; id: string } };
-    locale: string;
-  };
-  fields: {};
-}
-
-export interface SimplifiedBlock {
-  sys: {
-    contentType: { sys: { id: string } };
-  };
-  fields: HeroBlockFields | ServiceRowBlockFields | SimplifiedBlock;
-}
-
-// Initialize Contentful client
 const client = require("contentful").createClient({
   space: space,
   accessToken: accessToken,
@@ -105,19 +70,6 @@ export async function fetchMetadataBySlug(slug: string) {
   }
 }
 
-function processBlocks(blocks: SimplifiedBlock[]) {
-  return blocks.map(({ sys, fields }) => ({
-    sys: {
-      contentType: {
-        sys: {
-          id: sys.contentType.sys.id,
-        },
-      },
-    },
-    fields,
-  }));
-}
-
 export async function fetchBlocksBySlug(slug: string, locale: string) {
   console.log(`Fetching blocks from ${slug}...`);
   const pages = await client.getEntries({
@@ -136,7 +88,7 @@ export async function fetchBlocksBySlug(slug: string, locale: string) {
   // There will only be one that matches the slug
   if (pages.items[0]) {
     const blocks = pages.items[0].fields.blocks;
-    return processBlocks(blocks);
+    return blocks;
   }
 }
 

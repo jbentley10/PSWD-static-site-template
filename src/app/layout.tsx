@@ -2,7 +2,8 @@
 
 import { Antonio, Inter } from "next/font/google";
 import "./globals.css";
-import { Navigation, Footer } from "@palm-springs-web-design/oasis";
+import { Navigation } from "../components/navigation";
+import { Footer } from "../components/footer";
 
 // Declare fonts
 const antonio = Antonio({ subsets: ["latin"] });
