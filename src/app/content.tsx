@@ -77,10 +77,14 @@ const blockByType = (block: any) => {
 
 interface ContentProps {
   englishBlocks: [];
+  spanishBlocks: [];
 }
 
 // Component recieves a single array of block objects
-export default function Content({ englishBlocks }: ContentProps) {
+export default function Content({
+  englishBlocks,
+  spanishBlocks,
+}: ContentProps) {
   return (
     englishBlocks &&
     englishBlocks.map((block: any) => {

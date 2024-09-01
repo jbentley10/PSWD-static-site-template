@@ -132,7 +132,7 @@ export async function fetchMetadataBySlug(slug: string) {
   return data.pageCollection.items[0];
 }
 
-export async function fetchBlocksBySlug(slug: string) {
+export async function fetchBlocksBySlug(slug: string, locale: string) {
   const query = `
     query($slug: String!) {
       pageCollection(where: { slug: $slug }, limit: 1) {
