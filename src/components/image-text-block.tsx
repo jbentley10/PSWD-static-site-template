@@ -13,6 +13,8 @@ export interface ImageTextBlockProps {
   };
   heading: string;
   subtext: {};
+  buttonText: string;
+  buttonLink: string;
   imageOnLeft: boolean;
 }
 
@@ -20,6 +22,8 @@ export const ImageTextBlock: React.FC<ImageTextBlockProps> = ({
   image,
   heading,
   subtext,
+  buttonText,
+  buttonLink,
   imageOnLeft,
 }) => {
   return (
